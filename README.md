@@ -55,16 +55,16 @@ Example:
 ### 📥 Installation
 
 ```bash
-git clone https://github.com/yourusername/cdn-dns-resolver
-cd cdn-dns-resolver
+git clone https://github.com/vbaz365/cdn.git
+cd cdn
 go build -o resolver main.go
 ```
 
 ### 🧪 Running the Resolver
-- ./resolver 2001:db8:abcd:1::/64
+- ./resolver 2a03:2960::/36
 
 ### 📤 Example Output
-- Pop id: 200, Scope: 48
+- Pop id: 118, Scope: 32
 
 ### 🧪 Running Unit Tests
 To run the unit tests for utility functions:
