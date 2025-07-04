@@ -49,10 +49,6 @@ Example:
 
 ## 🚀 Getting Started
 
-### ✅ Requirements
-
-- Go 1.18 or newer
-
 ### 📥 Installation
 
 ```bash
@@ -62,14 +58,14 @@ go build -o resolver main.go
 ```
 
 ### 🧪 Running the Resolver
-./resolver 2001:db8:abcd:1::/64
+- ./resolver 2001:db8:abcd:1::/64
 
 ### 📤 Example Output
-Pop id: 200, Scope: 48
+- Pop id: 200, Scope: 48
 
 ### 🧪 Running Unit Tests
-To run the unit tests for utility functions:
-go test ./utils
+- To run the unit tests for utility functions:
+- go test ./utils
 
 
 
