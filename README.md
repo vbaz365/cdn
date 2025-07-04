@@ -19,14 +19,17 @@ ECS Query: 2001:49f0:d0b8:8a00::/56
 Response: PoP 174, Scope 48
 
 ## 📦 Project Structure
+```text
 .
-├── main.go # Loads data and performs ECS lookup from CLI
-├── data/routing-data.txt # Input file with IPv6 prefixes and PoP IDs
+├── main.go                   # Loads data and performs ECS lookup from CLI
+├── data/
+│   └── routing-data.txt      # Input file with IPv6 prefixes and PoP IDs
 ├── datastructure/
-│ └── radix_tree.go # Compressed radix tree implementation
+│   └── radix_tree.go         # Compressed radix tree implementation
 ├── utils/
-│ ├── radix_tree_utils.go # Bit operations & prefix manipulation
-│ └── radix_tree_utils_test.go # Unit tests for utils
+│   ├── radix_tree_utils.go   # Bit operations & prefix manipulation
+│   └── radix_tree_utils_test.go # Unit tests for utils
+```
 
 ---
 
@@ -64,7 +67,7 @@ go build -o resolver main.go
 - Pop id: 200, Scope: 48
 
 ### 🧪 Running Unit Tests
-- To run the unit tests for utility functions:
+To run the unit tests for utility functions:
 - go test ./utils
 
 
