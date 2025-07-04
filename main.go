@@ -24,7 +24,7 @@ func main() {
 
 	_, ipNet, _ := net.ParseCIDR(os.Args[1])
 	pop, scope := data.Route(ipNet)
-	fmt.Printf("Pop id: %d, Scope: %d from: %s\n", pop, scope, os.Args[1])
+	fmt.Printf("Pop id: %d, Scope: %d\n", pop, scope)
 }
 
 // loadRoutingData loads the routing data from a text file into the datastructure
