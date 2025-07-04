@@ -41,9 +41,9 @@ func TestCommonPrefixLen(t *testing.T) {
 
 func TestGetFirstBit(t *testing.T) {
 	tests := []struct {
-		name  string
-		input uint64
-		expected  uint8
+		name     string
+		input    uint64
+		expected uint8
 	}{
 		{name: "MSB is 1", input: 0x8000000000000000, expected: 1},
 		{name: "MSB is 0", input: 0x7FFFFFFFFFFFFFFF, expected: 0},
@@ -112,38 +112,38 @@ func TestGetBitsAfterIndex(t *testing.T) {
 
 func TestCombineSmallCompressions(t *testing.T) {
 	tests := []struct {
-		name       string
-		first      uint64
-		firstLen   uint8
-		second     uint64
-		secondLen  uint8
+		name           string
+		first          uint64
+		firstLen       uint8
+		second         uint64
+		secondLen      uint8
 		expectedVal    uint64
 		expectedLength uint8
 	}{
 		{
-			name:       "Combine simple 4 and 4 bits",
-			first:      0b1111,
-			firstLen:   4,
-			second:     0b1100,
-			secondLen:  4,
+			name:           "Combine simple 4 and 4 bits",
+			first:          0b1111,
+			firstLen:       4,
+			second:         0b1100,
+			secondLen:      4,
 			expectedVal:    0b1111 | (0b1100 >> 4),
 			expectedLength: 8,
 		},
 		{
-			name:       "Combine zero lengths",
-			first:      0,
-			firstLen:   0,
-			second:     0,
-			secondLen:  0,
+			name:           "Combine zero lengths",
+			first:          0,
+			firstLen:       0,
+			second:         0,
+			secondLen:      0,
 			expectedVal:    0,
 			expectedLength: 0,
 		},
 		{
-			name:       "Combine with zero first",
-			first:      0,
-			firstLen:   0,
-			second:     0b101010,
-			secondLen:  6,
+			name:           "Combine with zero first",
+			first:          0,
+			firstLen:       0,
+			second:         0b101010,
+			secondLen:      6,
 			expectedVal:    0b101010,
 			expectedLength: 6,
 		},
@@ -162,45 +162,45 @@ func TestCombineSmallCompressions(t *testing.T) {
 
 func TestSplitCompression(t *testing.T) {
 	tests := []struct {
-		name       string
-		input      uint64
-		splitIndex uint8
-		expectedHigh   uint64
+		name         string
+		input        uint64
+		splitIndex   uint8
+		expectedHigh uint64
 		expectedLow  uint64
 	}{
 		{
-			name:       "Split at 8",
-			input:      0b1111000011110000111100001111000011110000111100001111000011110000,
-			splitIndex: 8,
-			expectedHigh:   0b1111000000000000000000000000000000000000000000000000000000000000,
+			name:         "Split at 8",
+			input:        0b1111000011110000111100001111000011110000111100001111000011110000,
+			splitIndex:   8,
+			expectedHigh: 0b1111000000000000000000000000000000000000000000000000000000000000,
 			expectedLow:  0b1111000011110000111100001111000011110000111100001111000000000000,
 		},
 		{
-			name:       "Split at 0",
-			input:      0xFFFFFFFFFFFFFFFF,
-			splitIndex: 0,
-			expectedHigh:   0,
+			name:         "Split at 0",
+			input:        0xFFFFFFFFFFFFFFFF,
+			splitIndex:   0,
+			expectedHigh: 0,
 			expectedLow:  0xFFFFFFFFFFFFFFFF,
 		},
 		{
-			name:       "Split at 64",
-			input:      0xFFFFFFFFFFFFFFFF,
-			splitIndex: 64,
-			expectedHigh:   0xFFFFFFFFFFFFFFFF,
+			name:         "Split at 64",
+			input:        0xFFFFFFFFFFFFFFFF,
+			splitIndex:   64,
+			expectedHigh: 0xFFFFFFFFFFFFFFFF,
 			expectedLow:  0,
 		},
 		{
-			name:       "Split at 32",
-			input:      0xFFFF0000FFFF0000,
-			splitIndex: 32,
-			expectedHigh:   0xFFFF000000000000,
+			name:         "Split at 32",
+			input:        0xFFFF0000FFFF0000,
+			splitIndex:   32,
+			expectedHigh: 0xFFFF000000000000,
 			expectedLow:  0xFFFF000000000000,
 		},
 		{
-			name:       "Split at 12",
-			input:      0x0FF0F00FFF000000,
-			splitIndex: 12,
-			expectedHigh:   0x0FF0000000000000,
+			name:         "Split at 12",
+			input:        0x0FF0F00FFF000000,
+			splitIndex:   12,
+			expectedHigh: 0x0FF0000000000000,
 			expectedLow:  0x0F00FFF000000000,
 		},
 	}
