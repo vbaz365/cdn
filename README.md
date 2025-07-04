@@ -1,4 +1,4 @@
-# 🌐 CDN DNS Resolver (ECS-Aware)
+# 🌐 CDN DNS Resolver
 
 This project is a Go implementation of an **Authoritative DNS Resolver** that uses **EDNS Client Subnet (ECS)** information to return geographically optimized responses. It determines the closest CDN **Point of Presence (PoP)** for a given IPv6 prefix using a **compressed binary radix tree**.
 
